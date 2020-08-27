@@ -1,20 +1,21 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
+    <ion-title color="primary">
+      MercadoPeña
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-list>
+    <ion-item *ngFor="let prod of productos" [routerLink]="['/home', prod.id]">
+      <ion-avatar slot="start">
+        <img [src]=prod.imagen/>
+      </ion-avatar>
+      <ion-label>{{prod.nombre}}</ion-label>
+      <ion-label color="danger">${{prod.precio}}</ion-label>
+      <ion-label *ngIf="prod.cantidad>0">{{prod.cantidad}}</ion-label>
+      <ion-label *ngIf="prod.cantidad==0" color="secondary">SIN STOCK</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
