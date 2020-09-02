@@ -3,6 +3,10 @@
     <ion-title color="primary">
       MercadoPeña
     </ion-title>
+    <ion-avatar slot="end">
+      <ion-badge color="danger" mode="ios">{{cantidad}}</ion-badge>
+      <img src="../../assets/carro-de-la-compra.jpg"/>
+    </ion-avatar>
   </ion-toolbar>
 </ion-header>
 
@@ -12,10 +16,10 @@
       <ion-avatar slot="start">
         <img [src]=prod.imagen/>
       </ion-avatar>
-      <ion-label>{{prod.nombre}}</ion-label>
-      <ion-label color="danger">${{prod.precio}}</ion-label>
+      <ion-label color="secondary">{{prod.nombre}}</ion-label>
+      <ion-label>${{prod.precio}}</ion-label>
       <ion-label *ngIf="prod.cantidad>0">{{prod.cantidad}}</ion-label>
-      <ion-label *ngIf="prod.cantidad==0" color="secondary">SIN STOCK</ion-label>
+      <ion-label *ngIf="prod.cantidad==0" color="danger">SIN STOCK</ion-label>
     </ion-item>
   </ion-list>
 </ion-content>
