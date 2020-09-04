@@ -8,7 +8,9 @@
 </ion-header>
 
 <ion-content>
-  <ion-img [src]=producto.imagen></ion-img>
+  <div class="contenedor">
+    <ion-img class="tamanioImg" [src]=producto.imagen></ion-img>
+  </div>
   <ion-list>
     <ion-item>
       <ion-label color="primary">Producto</ion-label>
@@ -23,8 +25,16 @@
       <ion-label *ngIf="producto.cantidad>0">{{producto.cantidad}}</ion-label>
       <ion-label *ngIf="producto.cantidad==0" color="danger">SIN STOCK</ion-label>
     </ion-item>
+    <ion-item>
+      <ion-label color="primary">Cantidad</ion-label>
+      <ion-input slot="end" type="number" placeholder="{{producto.cantidad}} disponibles"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-icon color="success" slot="start" name="card"></ion-icon>
+      <ion-label color="success">Paga en 3 cuotas sin interes</ion-label>
+    </ion-item>
   </ion-list>
-  <ion-button (click)="addCart()" expand="block" fill="solid" shape="round">
+  <ion-button (click)="addCart()" expand="block" fill="solid" shape="round" [disabled]="producto.cantidad==0">
     Agregar al carrito
   </ion-button>
 </ion-content>

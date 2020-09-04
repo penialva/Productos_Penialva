@@ -14,7 +14,7 @@ export class CarritoService {
     this.carrito.push(prod);
   }
 
-  public cantidad() {
-    return this.carrito.length;
+  public verCarrito() {
+    return this.carrito;
   }
 }

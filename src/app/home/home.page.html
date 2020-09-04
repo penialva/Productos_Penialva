@@ -1,11 +1,11 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar class="fondo">
     <ion-title color="primary">
       MercadoPeña
     </ion-title>
     <ion-avatar slot="end">
-      <ion-badge color="danger" mode="ios">{{cantidad}}</ion-badge>
-      <img src="../../assets/carro-de-la-compra.jpg"/>
+      <ion-badge class="cantCarrito" color="danger" mode="ios">{{carrito.length}}</ion-badge>
+      <ion-img (click)="costCart()" class="carritoImg" src="../../assets/carro-de-la-compra.jpg"></ion-img>
     </ion-avatar>
   </ion-toolbar>
 </ion-header>
